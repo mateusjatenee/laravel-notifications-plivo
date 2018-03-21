@@ -1,12 +1,12 @@
 {
-    "name": "laravel-notification-channels/plivo",
+    "name": "mateusjatenee/laravel-notifications-plivo",
     "description": "Plivo SMS notifications driver for Laravel",
     "keywords": [
         "laravel",
         "notifications",
         "plivo"
     ],
-    "homepage": "https://github.com/laravel-notification-channels/plivo",
+    "homepage": "https://github.com/mateusjatenee/laravel-notifications-plivo",
     "license": "MIT",
     "authors": [
         {
@@ -18,24 +18,24 @@
     ],
     "require": {
         "php": ">=5.6.4",
-        "illuminate/notifications": "5.3.*|5.4.*",
-        "illuminate/support": "5.3.*|5.4.*",
-        "illuminate/events": "5.3.*|5.4.*",
-        "illuminate/queue": "5.3.*|5.4.*",
+        "illuminate/notifications": "5.3.*|5.4.*|5.5.*|5.6.*",
+        "illuminate/support": "5.3.*|5.4.*|5.5.*|5.6.*",
+        "illuminate/events": "5.3.*|5.4.*|5.5.*|5.6.*",
+        "illuminate/queue": "5.3.*|5.4.*|5.5.*|5.6.*",
         "plivo/plivo-php": "^1.1"
     },
     "require-dev": {
-        "mockery/mockery": "^0.9.5",
+        "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "4.*"
     },
     "autoload": {
         "psr-4": {
-            "NotificationChannels\\Plivo\\": "src"
+            "Mateusjatenee\\Plivo\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "NotificationChannels\\Plivo\\Test\\": "tests"
+            "Mateusjatenee\\Plivo\\Test\\": "tests"
         }
     },
     "scripts": {

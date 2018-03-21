@@ -1,8 +1,8 @@
 <?php
 
-namespace NotificationChannels\Plivo\Test;
+namespace Mateusjatenee\Plivo\Test;
 
-use NotificationChannels\Plivo\Plivo;
+use Mateusjatenee\Plivo\Plivo;
 
 class PlivoTest extends \PHPUnit_Framework_TestCase
 {

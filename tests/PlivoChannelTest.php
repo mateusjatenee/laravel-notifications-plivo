@@ -1,10 +1,10 @@
 <?php
 
-namespace NotificationChannels\Plivo\Test;
+namespace Mateusjatenee\Plivo\Test;
 
+use Mateusjatenee\Plivo\PlivoChannel;
+use Mateusjatenee\Plivo\PlivoMessage;
 use Mockery;
-use NotificationChannels\Plivo\PlivoChannel;
-use NotificationChannels\Plivo\PlivoMessage;
 
 class PlivoChannelTest extends \PHPUnit_Framework_TestCase
 {
@@ -115,7 +115,7 @@ class PlivoChannelTest extends \PHPUnit_Framework_TestCase
 
     private function mockedPlivo($config, array $arguments)
     {
-        return Mockery::mock('\NotificationChannels\Plivo\Plivo', [$config])
+        return Mockery::mock('\Mateusjatenee\Plivo\Plivo', [$config])
             ->shouldReceive('send_message')
             ->once()
             ->with($arguments)

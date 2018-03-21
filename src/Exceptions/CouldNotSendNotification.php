@@ -1,6 +1,6 @@
 <?php
 
-namespace NotificationChannels\Plivo\Exceptions;
+namespace Mateusjatenee\Plivo\Exceptions;
 
 class CouldNotSendNotification extends \Exception
 {

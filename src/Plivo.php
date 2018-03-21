@@ -1,6 +1,6 @@
 <?php
 
-namespace NotificationChannels\Plivo;
+namespace Mateusjatenee\Plivo;
 
 use Plivo\RestAPI as PlivoRestApi;
 

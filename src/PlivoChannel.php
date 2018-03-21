@@ -1,6 +1,6 @@
 <?php
 
-namespace NotificationChannels\Plivo;
+namespace Mateusjatenee\Plivo;
 
 use Illuminate\Notifications\Notification;
 use NotificationChannels\Plivo\Exceptions\CouldNotSendNotification;
@@ -46,7 +46,7 @@ class PlivoChannel
      */
     public function send($notifiable, Notification $notification)
     {
-        if (! $to = $notifiable->routeNotificationFor('plivo')) {
+        if (!$to = $notifiable->routeNotificationFor('plivo')) {
             return;
         }
 

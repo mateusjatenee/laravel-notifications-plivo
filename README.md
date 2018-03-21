@@ -1,16 +1,18 @@
-# Plivo notifications channel for Laravel 5.3
+# Plivo notifications channel for Laravel 5.6  
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/laravel-notification-channels/plivo.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/plivo)
+## This is a fork of laravel-notification-channels/plivo with added support to 5.6
+
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/mateusjatenee/laravel-notifications-plivo.svg?style=flat-square)](https://packagist.org/packages/mateusjatenee/laravel-notifications-plivo)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/laravel-notification-channels/plivo/master.svg?style=flat-square)](https://travis-ci.org/laravel-notification-channels/plivo)
+[![Build Status](https://img.shields.io/travis/mateusjatenee/laravel-notifications-plivo/master.svg?style=flat-square)](https://travis-ci.org/mateusjatenee/laravel-notifications-plivo)
 [![StyleCI](https://styleci.io/repos/65715218/shield)](https://styleci.io/repos/65715218)
 [![SensioLabsInsight](https://img.shields.io/sensiolabs/i/f4bd99c4-092c-4e36-a319-826f142c1ec4.svg?style=flat-square)](https://insight.sensiolabs.com/projects/f4bd99c4-092c-4e36-a319-826f142c1ec4)
-[![Quality Score](https://img.shields.io/scrutinizer/g/laravel-notification-channels/plivo.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/plivo)
-[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/laravel-notification-channels/plivo/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/plivo/?branch=master)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravel-notification-channels/plivo.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/plivo)
+[![Quality Score](https://img.shields.io/scrutinizer/g/mateusjatenee/laravel-notifications-plivo.svg?style=flat-square)](https://scrutinizer-ci.com/g/mateusjatenee/laravel-notifications-plivo)
+[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/mateusjatenee/laravel-notifications-plivo/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/mateusjatenee/laravel-notifications-plivo/?branch=master)
+[![Total Downloads](https://img.shields.io/packagist/dt/mateusjatenee/laravel-notifications-plivo.svg?style=flat-square)](https://packagist.org/packages/mateusjatenee/laravel-notifications-plivo)
 
 
-This package makes it easy to send SMS notifications using [Plivo](https://plivo.com) with Laravel 5.3.
+This package makes it easy to send SMS notifications using [Plivo](https://plivo.com) with Laravel 5.6.
 
 ## Contents
 
@@ -29,7 +31,7 @@ This package makes it easy to send SMS notifications using [Plivo](https://plivo
 ## Installation
 
 You can install this package via composer:
-`composer require laravel-notification-channels/plivo`
+`composer require mateusjatenee/laravel-notifications-plivo`
 
 Add the service provider to `config/app.php`:
 
@@ -37,7 +39,7 @@ Add the service provider to `config/app.php`:
 // config/app.php
 'providers' => [
     ...
-    NotificationChannels\Plivo\PlivoServiceProvider::class,
+    Mateusjatenee\Plivo\PlivoServiceProvider::class,
 ],
 ```
 

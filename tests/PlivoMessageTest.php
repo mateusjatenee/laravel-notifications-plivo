@@ -1,12 +1,12 @@
 <?php
 
-namespace NotificationChannels\Plivo\Test;
+namespace Mateusjatenee\Plivo\Test;
 
-use NotificationChannels\Plivo\PlivoMessage;
+use Mateusjatenee\Plivo\PlivoMessage;
 
 class PlivoMessageTest extends \PHPUnit_Framework_TestCase
 {
-    /** @var \NotificationChannels\Plivo\PlivoMessage */
+    /** @var \Mateusjatenee\Plivo\PlivoMessage */
     protected $message;
 
     /** @test */
