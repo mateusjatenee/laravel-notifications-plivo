@@ -1,12 +1,12 @@
 <?php
 
-namespace NotificationChannels\Plivo\Test;
+namespace Mateusjatenee\Plivo\Test;
 
-use NotificationChannels\Plivo\PlivoMessage;
+use Mateusjatenee\Plivo\PlivoMessage;
 
 class PlivoMessageTest extends \PHPUnit_Framework_TestCase
 {
-    /** @var \NotificationChannels\Plivo\PlivoMessage */
+    /** @var \Mateusjatenee\Plivo\PlivoMessage */
     protected $message;
 
     /** @test */
@@ -39,5 +39,13 @@ class PlivoMessageTest extends \PHPUnit_Framework_TestCase
         $this->message->from('1234567890');
 
         $this->assertEquals('1234567890', $this->message->from);
+    }
+
+    /** @test */
+    public function it_can_set_the_webhook()
+    {
+        $this->message->webhook('https://example.com');
+
+        $this->assertEquals('https://example.com', $this->message->webhook);
     }
 }
