@@ -2,6 +2,8 @@
 
 namespace Mateusjatenee\Plivo;
 
+use Mateusjatenee\Plivo\PlivoResponse;
+
 class PlivoMessage
 {
     /**
@@ -89,5 +91,41 @@ class PlivoMessage
         $this->webhook = $webhook;
 
         return $this;
+    }
+
+    /**
+     * Add a callback to the message.
+     *
+     * @param  callable $callback
+     * @return $this
+     */
+    public function then($callback)
+    {
+        $this->callbacks[] = $callback;
+
+        return $this;
+    }
+
+    /**
+     * Fire all available callbacks.
+     *
+     * @param  array $response
+     * @return void
+     */
+    public function fireCallbacks($response)
+    {
+        foreach ($this->callbacks as $callback) {
+            $callback(PlivoResponse::make($this, $response));
+        }
+    }
+
+    /**
+     * Get the callbacks of the message.
+     *
+     * @return array
+     */
+    public function getCallbacks()
+    {
+        return $this->callbacks;
     }
 }
