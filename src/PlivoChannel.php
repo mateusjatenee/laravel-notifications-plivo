@@ -3,7 +3,7 @@
 namespace Mateusjatenee\Plivo;
 
 use Illuminate\Notifications\Notification;
-use NotificationChannels\Plivo\Exceptions\CouldNotSendNotification;
+use Mateusjatenee\Plivo\Exceptions\CouldNotSendNotification;
 
 class PlivoChannel
 {
@@ -66,6 +66,8 @@ class PlivoChannel
         if ($response['status'] !== 202) {
             throw CouldNotSendNotification::serviceRespondedWithAnError($response);
         }
+
+        $message->fireCallbacks($response['response']);
 
         return $response;
     }

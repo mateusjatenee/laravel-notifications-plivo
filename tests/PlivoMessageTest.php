@@ -3,6 +3,7 @@
 namespace Mateusjatenee\Plivo\Test;
 
 use Mateusjatenee\Plivo\PlivoMessage;
+use Mateusjatenee\Plivo\PlivoResponse;
 
 class PlivoMessageTest extends \PHPUnit_Framework_TestCase
 {
@@ -47,5 +48,17 @@ class PlivoMessageTest extends \PHPUnit_Framework_TestCase
         $this->message->webhook('https://example.com');
 
         $this->assertEquals('https://example.com', $this->message->webhook);
+    }
+
+    /** @test */
+    public function it_can_add_callbacks()
+    {
+        $this->message->then(function (PlivoResponse $response) {
+            return $response;
+        });
+
+        $this->message->fireCallbacks([]);
+
+        $this->assertNotEmpty($this->message->getCallbacks());
     }
 }

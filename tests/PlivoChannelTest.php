@@ -4,6 +4,7 @@ namespace Mateusjatenee\Plivo\Test;
 
 use Mateusjatenee\Plivo\PlivoChannel;
 use Mateusjatenee\Plivo\PlivoMessage;
+use Mateusjatenee\Plivo\PlivoResponse;
 use Mockery;
 
 class PlivoChannelTest extends \PHPUnit_Framework_TestCase
@@ -96,6 +97,36 @@ class PlivoChannelTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue(true);
     }
 
+    /** @test */
+    public function it_fires_callbacks()
+    {
+        $config = $this->config($withwebhook = true);
+
+        $plivo = $this->mockedPlivo($config, [
+            'src' => $config['from_number'],
+            'dst' => $this->notifiable->routeNotificationFor('plivo'),
+            'text' => 'Content',
+            'url' => 'https://messagewebhook.com',
+        ]);
+        $obj = new \StdClass;
+
+        $message = new PlivoMessage('Content', 'https://messagewebhook.com');
+        $message->then(function (PlivoResponse $response) use ($obj) {
+            $obj->content = $response->message->content;
+            $obj->uuid = $response->uuid;
+            $obj->api_id = $response->apiId;
+        });
+
+        $notification = $this->notification($message);
+
+        (new PlivoChannel($plivo))
+            ->send($this->notifiable, $notification);
+
+        $this->assertEquals('Content', $obj->content);
+        $this->assertEquals('123', $obj->uuid);
+        $this->assertEquals('123654', $obj->api_id);
+    }
+
     private function notification($withPlivoMessage)
     {
         return Mockery::mock('\Illuminate\Notifications\Notification')
@@ -119,7 +150,13 @@ class PlivoChannelTest extends \PHPUnit_Framework_TestCase
             ->shouldReceive('send_message')
             ->once()
             ->with($arguments)
-            ->andReturn(['status' => 202])
+            ->andReturn([
+                'status' => 202,
+                'response' => [
+                    'api_id' => '123654',
+                    'message_uuid' => ['123'],
+                ],
+            ])
             ->getMock()
             ->makePartial();
     }
