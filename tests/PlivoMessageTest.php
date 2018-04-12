@@ -53,11 +53,16 @@ class PlivoMessageTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function it_can_add_callbacks()
     {
+        $this->assertEquals([], $this->message->getCallbacks());
+
         $this->message->then(function (PlivoResponse $response) {
             return $response;
         });
 
-        $this->message->fireCallbacks([]);
+        $this->message->fireCallbacks([
+            'api_id' => '123654',
+            'message_uuid' => ['123'],
+        ]);
 
         $this->assertNotEmpty($this->message->getCallbacks());
     }

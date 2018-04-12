@@ -27,6 +27,8 @@ class PlivoMessage
      */
     public $webhook;
 
+    protected $callbacks = [];
+
     /**
      * Create a new message instance.
      *
